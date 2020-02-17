@@ -146,7 +146,7 @@
   <div class="max-w-screen-xl m-auto">
     <div class="flex h-screen" id="about">
       <div class="m-auto">
-        <div class="flex">
+        <div class="flex flex-col flex-col-reverse md:flex-row">
           <div class="w-2/6 m-auto">
             <div class="text-6xl leading-none pb-10">
               Manel Gavaldà
@@ -155,7 +155,7 @@
               Full Stack Developer working with Laravel and VueJs. In my free time I like contributing on the Laracasts Forum and other Laravel related projects / activities.
             </div>
           </div>
-          <div class="items-center w-2/6 mr-auto m-10">
+          <div class="items-center w-2/6 m-auto m-10">
             <img class="rounded shadow-2xl" src="manel.png">
           </div>
         </div>
@@ -169,24 +169,17 @@
             x-for="project in projects"
           >
             <div class="sm:w-2/4">
-              <div class="flex flex-col items-center hover:bg-gray-200 rounded shadow-2xl bg-gray-100 m-4">
-                <img class="h-64 shadow-xl rounded mt-10" :src="project.image">
+              <div class="flex flex-row items-center hover:bg-gray-200 rounded shadow-2xl bg-gray-100 m-4">
+                <img class="h-64 shadow-xl rounded" :src="project.image">
 
-                <div class="p-10 text-center mx-10">
-                  <div class="text-2xl mb-1" x-text="project.title"></div>
-                  <div class="text-gray-600 h-16" x-text="project.body"></div>
-                </div>
-                <div class="py-4">
-<!--                   <a
-                    class="hover:text-white hover:bg-gray-400 inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
-                    :href="project.github"
-                    target="_blank"
-                  >Github</a> -->
-                  <a
-                    class="hover:text-white hover:bg-gray-400 inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"
-                    :href="project.demo"
-                    target="_blank"
-                  >Demo</a>
+                <div class="text-center mx-5">
+                  <div class="text-2xl" x-text="project.title"></div>
+                  <div class="text-gray-600 py-3" x-text="project.body"></div>
+                    <a
+                      class="hover:text-white hover:bg-gray-400 inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"
+                      :href="project.demo"
+                      target="_blank"
+                    >Demo</a>
                 </div>
               </div>
             </div>
