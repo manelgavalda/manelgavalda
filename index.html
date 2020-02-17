@@ -137,13 +137,16 @@
 <body class="overflow-hidden">
   <ul class="flex bg-gray-200 h-16 fixed shadow-xl w-full">
     <li class="m-5">
-      <a class="text-blue-500 hover:text-blue-800" href="#about">About</a>
+      <a
+        href="#about"
+        class="text-blue-600 hover:text-blue-800"
+      >About</a>
     </li>
     <li class="m-5">
-      <a class="text-blue-500 hover:text-blue-800" href="#projects">Projects</a>
+      <a class="text-blue-600 hover:text-blue-800" href="#projects">Projects</a>
     </li>
     <li class="m-5">
-      <a class="text-blue-500 hover:text-blue-800" href="#contact">Contact</a>
+      <a class="text-blue-600 hover:text-blue-800" href="#contact">Contact</a>
     </li>
   </ul>
   <div class="max-w-screen-xl m-auto">
@@ -227,6 +230,29 @@
 <script src="alpine.js" defer></script>
 
 <script>
+  function debounce(callback, delay){
+    var timer;
+
+    return function(){
+      var args = arguments;
+      var context = this;
+      clearTimeout(timer);
+      timer = setTimeout(function(){
+        callback.apply(context, args);
+      }, delay)
+    }
+  }
+
+  window.addEventListener('wheel', debounce(function(event){
+    if(location.hash == '#about') {
+      location.hash = event.deltaY < 0 ? '#contact' : '#projects'
+    } else if(location.hash == '#projects') {
+      location.hash = event.deltaY < 0 ? '#about' : '#contact'
+    } else if(location.hash == '#contact') {
+      location.hash = event.deltaY < 0 ? '#projects' : '#about'
+    }
+  }, 300))
+
   function projects() {
     return {
       projects : [
