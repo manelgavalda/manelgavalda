@@ -1,170 +1,252 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Manel Gavaldà</title>
+  <title>Manel Gavaldà</title>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600" rel="stylesheet">
 
-    <!-- Styles -->
-    <style>
-        html, body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 200;
-            height: 100vh;
-            margin: 0;
-        }
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 
-        .full-height {
-            height: 100vh;
-        }
+  <link href="tailwind.min.css" rel="stylesheet">
 
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
+  <!-- Styles -->
+  <style>
+    html, body {
+      color: #636b6f;
+      font-weight: 200;
+      background-color: #fff;
+      font-family: 'Nunito', sans-serif;
+      scroll-behavior: smooth;
+    }
 
-        .content {
-            text-align: center;
-        }
+    .social-icons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 80px;
+      height: 80px;
+      margin: 0 0.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      font-size: 2.5rem;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .social-icon:hover {
+      color: #fff;
+    }
 
-        .title {
-            font-size: 84px;
-        }
+    .social-icon:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+      -webkit-transform: translate(-50%, -150%);
+            transform: translate(-50%, -150%);
+    }
+    .social-icon:active {
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5) inset;
+    }
 
-        .links > a {
-            padding: 0 25px;
-            text-decoration: none;
-        }
+    .social-icon--linkedin {
+      background: #006599;
+      color: #fff;
+    }
+    .social-icon--linkedin .tooltip {
+      background: #006599;
+      color: currentColor;
+    }
+    .social-icon--linkedin .tooltip:after {
+      border-top-color: #006599;
+    }
+    .social-icon--github {
+      background: #4284c0;
+      color: #fff;
+    }
+    .social-icon--github .tooltip {
+      background: #4284c0;
+      color: currentColor;
+    }
+    .social-icon--github .tooltip:after {
+      border-top-color: #4284c0;
+    }
+    .social-icon--email {
+      background: red;
+      color: #fff;
+    }
+    .social-icon--email .tooltip {
+      background: red;
+      color: currentColor;
+    }
+    .social-icon--email .tooltip:after {
+      border-top-color: red;
+    }
+    .social-icon i {
+      position: relative;
+      top: 1px;
+    }
 
-        .m-b-md {
-            margin-bottom: 30px;
-        }
+    /* Tooltips */
+    .tooltip {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      padding: 0.8rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      opacity: 0;
+      pointer-events: none;
+      text-transform: uppercase;
+      -webkit-transform: translate(-50%, -100%);
+        transform: translate(-50%, -100%);
+      transition: all 0.3s ease;
+      z-index: 1;
+    }
 
-        /* Social Icons */
+    .tooltip:after {
+      display: block;
+      position: absolute;
+      bottom: 1px;
+      left: 50%;
+      width: 0;
+      height: 0;
+      content: "";
+      border: solid;
+      border-width: 10px 10px 0 10px;
+      border-color: transparent;
+      -webkit-transform: translate(-50%, 100%);
+        transform: translate(-50%, 100%);
+    }
+  </style>
 
-        .social-icons {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .social-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            width: 80px;
-            height: 80px;
-            margin: 0 0.5rem;
-            border-radius: 50%;
-            cursor: pointer;
-            font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-            font-size: 2.5rem;
-            text-decoration: none;
-            transition: all 0.15s ease;
-        }
-        .social-icon:hover {
-            color: #fff;
-        }
-        .social-icon:hover .tooltip {
-            visibility: visible;
-            opacity: 1;
-            -webkit-transform: translate(-50%, -150%);
-                  transform: translate(-50%, -150%);
-        }
-        .social-icon:active {
-            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5) inset;
-        }
-        .social-icon--linkedin {
-            background: #006599;
-            color: #fff;
-        }
-        .social-icon--linkedin .tooltip {
-            background: #006599;
-            color: currentColor;
-        }
-        .social-icon--linkedin .tooltip:after {
-            border-top-color: #006599;
-        }
-        .social-icon--github {
-            background: #4284c0;
-            color: #fff;
-        }
-        .social-icon--github .tooltip {
-            background: #4284c0;
-            color: currentColor;
-        }
-        .social-icon--github .tooltip:after {
-            border-top-color: #4284c0;
-        }
-        .social-icon i {
-            position: relative;
-            top: 1px;
-        }
-
-        /* Tooltips */
-        .tooltip {
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            padding: 0.8rem 1rem;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            opacity: 0;
-            pointer-events: none;
-            text-transform: uppercase;
-            -webkit-transform: translate(-50%, -100%);
-                  transform: translate(-50%, -100%);
-            transition: all 0.3s ease;
-            z-index: 1;
-        }
-        .tooltip:after {
-            display: block;
-            position: absolute;
-            bottom: 1px;
-            left: 50%;
-            width: 0;
-            height: 0;
-            content: "";
-            border: solid;
-            border-width: 10px 10px 0 10px;
-            border-color: transparent;
-            -webkit-transform: translate(-50%, 100%);
-                  transform: translate(-50%, 100%);
-        }
-
-    </style>
 </head>
-<body>
-<div class="flex-center full-height">
-    <div class="content">
-        <div class="title">
-            Manel Gavaldà
+<body class="overflow-hidden">
+  <ul class="flex bg-gray-200 h-16 fixed shadow-xl w-full">
+    <li class="m-5">
+      <a class="text-blue-500 hover:text-blue-800" href="#about">About</a>
+    </li>
+    <li class="m-5">
+      <a class="text-blue-500 hover:text-blue-800" href="#projects">Projects</a>
+    </li>
+    <li class="m-5">
+      <a class="text-blue-500 hover:text-blue-800" href="#contact">Contact</a>
+    </li>
+  </ul>
+  <div class="max-w-screen-xl m-auto">
+    <div class="flex h-screen" id="about">
+      <div class="m-auto">
+        <div class="flex">
+          <div class="w-2/6 m-auto">
+            <div class="text-6xl leading-none pb-10">
+              Manel Gavaldà
+            </div>
+            <div class="text-l">
+              Full Stack Developer working with Laravel and VueJs. In my free time I like contributing on the Laracasts Forum and other Laravel related projects / activities.
+            </div>
+          </div>
+          <div class="items-center w-2/6 mr-auto m-10">
+            <img class="rounded shadow-2xl" src="manel.png">
+          </div>
         </div>
-
-        <h2 class="m-b-md">Full Stack Developer working with Laravel and VueJS</h2>
-
-        <div class="social-icons">
-            <a href="https://www.github.com/manelgavalda" class="social-icon social-icon--github" target="_blank">
-                <i class="fab fa-github"></i>
-                <div class="tooltip">Github</div>
-            </a>
-            <a href="https://linkedin.com/in/manel-gavald%C3%A0-andreu-410b72117" class="social-icon social-icon--linkedin" target="_blank">
-                <i class="fab fa-linkedin-in"></i>
-                <div class="tooltip">LinkedIn</div>
-            </a>
-        </div>
+      </div>
     </div>
-</div>
+    <div class="flex h-screen" id="projects">
+      <div class="m-auto">
+        <div class="flex flex-wrap text-gray-800">
+          <template
+            x-data="projects()"
+            x-for="project in projects"
+          >
+            <div class="sm:w-2/4">
+              <div class="flex flex-col items-center hover:bg-gray-200 rounded shadow-2xl bg-gray-100 m-4">
+                <img class="h-64 shadow-xl rounded mt-10" :src="project.image">
+
+                <div class="p-10 text-center mx-10">
+                  <div class="text-2xl mb-1" x-text="project.title"></div>
+                  <div class="text-gray-600 h-16" x-text="project.body"></div>
+                </div>
+                <div class="py-4">
+<!--                   <a
+                    class="hover:text-white hover:bg-gray-400 inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                    :href="project.github"
+                    target="_blank"
+                  >Github</a> -->
+                  <a
+                    class="hover:text-white hover:bg-gray-400 inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"
+                    :href="project.demo"
+                    target="_blank"
+                  >Demo</a>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+    <div class="flex h-screen" id="contact">
+      <div class="m-auto">
+        <div class="social-icons pt-5 pb-3">
+          <a
+            href="https://www.github.com/manelgavalda"
+            class="social-icon social-icon--github"
+            target="_blank"
+          >
+            <i class="fab fa-github"></i>
+            <div class="tooltip">Github</div>
+          </a>
+          <a
+            href="https://linkedin.com/in/manel-gavald%C3%A0-andreu-410b72117"
+            class="social-icon social-icon--linkedin"
+            target="_blank"
+          >
+            <i class="fab fa-linkedin-in"></i>
+            <div class="tooltip">LinkedIn</div>
+          </a>
+          <a
+            href="mailto:manelgavalda1@gmail.com"
+            class="social-icon social-icon--email"
+            target="_blank"
+          >
+            <i class="fab fa-google"></i>
+            <div class="tooltip">Mail</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
+
+<script src="alpine.js" defer></script>
+
+<script>
+  function projects() {
+    return {
+      projects : [
+        {
+          title: 'Commands',
+          body: 'VueJs with Vuex and Vuetify Ipad application used to manage food commands for a company.',
+          demo: 'https://comandes-badia-v2.surge.sh',
+          image: 'commands.png'
+        },
+        {
+          title: 'Subscribers',
+          body: 'Laravel, VueJs and Vuetify application used to manage email subscribers.',
+          demo: 'https://github.com/manelgavalda/LaravelSubscribers',
+          image: 'subscribers.png'
+        }
+      ]
+    }
+  }
+</script>
