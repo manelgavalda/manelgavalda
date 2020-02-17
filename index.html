@@ -244,7 +244,7 @@
   }
 
   window.addEventListener('wheel', debounce(function(event){
-    if(location.hash == '#about') {
+    if(location.hash == '#about' || location.hash == '') {
       location.hash = event.deltaY < 0 ? '#contact' : '#projects'
     } else if(location.hash == '#projects') {
       location.hash = event.deltaY < 0 ? '#about' : '#contact'
