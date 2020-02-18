@@ -134,19 +134,47 @@
   </style>
 
 </head>
-<body class="overflow-hidden">
+<body
+  x-data="tab()"
+  class="overflow-hidden"
+  @wheel="{ setTimeout(() => { tab = location.hash }, 200) }"
+>
   <ul class="flex bg-gray-200 h-16 fixed shadow-xl w-full">
     <li class="m-5">
       <a
         href="#about"
-        class="text-blue-600 hover:text-blue-800"
+        class="text-blue-500 hover:text-blue-800"
+        @click="{ tab = '#about' }"
+        :class="{
+          'underline': tab == '#about',
+          'text-blue-900': tab == '#about',
+          'text-xl': tab == '#about'
+        }"
       >About</a>
     </li>
     <li class="m-5">
-      <a class="text-blue-600 hover:text-blue-800" href="#projects">Projects</a>
+      <a
+        href="#projects"
+        class="text-blue-500 hover:text-blue-900"
+        @click="{ tab = '#projects' }"
+        :class="{
+          'underline': tab == '#projects',
+          'text-blue-900': tab == '#projects',
+          'text-xl': tab == '#projects'
+        }"
+      >Projects</a>
     </li>
     <li class="m-5">
-      <a class="text-blue-600 hover:text-blue-800" href="#contact">Contact</a>
+      <a
+        href="#contact"
+        class="text-blue-500 hover:text-blue-900"
+        @click="{ tab = '#contact' }"
+        :class="{
+          'underline': tab == '#contact',
+          'text-blue-900': tab == '#contact',
+          'text-xl': tab == '#contact'
+        }"
+      >Contact</a>
     </li>
   </ul>
   <div class="max-w-screen-xl m-auto">
@@ -275,6 +303,12 @@
           image: 'forum.png'
         }
       ]
+    }
+  }
+
+  function tab() {
+    return {
+      tab: location.hash
     }
   }
 </script>
