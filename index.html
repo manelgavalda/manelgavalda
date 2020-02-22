@@ -139,16 +139,15 @@
   class="overflow-hidden"
   @wheel="{ setTimeout(() => { tab = location.hash }, 200) }"
 >
-  <div class="border-gray-400 border-2 fixed w-full"></div>
-  <ul class="flex bg-gray-200 h-16 fixed shadow-xl w-full mt-1 text-lg">
+  <div class="border-teal-800 border-2 fixed w-full"></div>
+  <ul class="flex bg-teal-600 h-16 fixed shadow-xl w-full mt-1 text-lg text-teal-100">
     <li class="m-5">
       <a
         href="#about"
-        class="text-blue-500 hover:text-blue-800 ml-5"
+        class="hover:text-teal-800 ml-5"
         @click="{ tab = '#about' }"
         :class="{
           'underline': tab == '#about',
-          'text-blue-900': tab == '#about',
           'font-bold': tab == '#about'
         }"
       >About</a>
@@ -156,11 +155,10 @@
     <li class="m-5">
       <a
         href="#projects"
-        class="text-blue-600 hover:text-blue-900"
+        class="hover:text-teal-900"
         @click="{ tab = '#projects' }"
         :class="{
           'underline': tab == '#projects',
-          'text-blue-900': tab == '#projects',
           'font-bold': tab == '#projects'
         }"
       >Projects</a>
@@ -168,11 +166,10 @@
     <li class="m-5">
       <a
         href="#contact"
-        class="text-blue-500 hover:text-blue-900"
+        class="hover:text-teal-900"
         @click="{ tab = '#contact' }"
         :class="{
           'underline': tab == '#contact',
-          'text-blue-900': tab == '#contact',
           'font-bold': tab == '#contact'
         }"
       >Contact</a>
@@ -181,13 +178,13 @@
   <div class="max-w-screen-xl m-auto">
     <div class="flex h-screen" id="about">
       <div class="m-auto">
-        <div class="flex flex-col flex-col-reverse md:flex-row bg-gray-100 rounded shadow-2xl w-4/6 m-auto">
-          <div class="border-gray-300 border-2"></div>
+        <div class=" text-white flex flex-col flex-col-reverse md:flex-row bg-teal-500 shadow-2xl w-4/6 m-auto  rounded-lg">
+          <div class="border-teal-800 border-2"></div>
           <div class="w-4/6 md:w-3/6 m-auto lg:mx-10 text-center sm:py-8">
             <div class="text-5xl leading-none pb-5 font-bold px-3">
               Manel Gavaldà
             </div>
-            <div class="text-l">
+            <div class="text-l font-bold">
               Full Stack Developer working with Laravel and VueJs.
               I like contributing on the
               <a
@@ -199,29 +196,29 @@
             </div>
           </div>
           <div class="items-center md:w-3/6">
-            <img class="rounded shadow-md" src="manel.png">
+            <img class="rounded-r-lg shadow-md" src="manel.png">
           </div>
         </div>
       </div>
     </div>
     <div class="flex h-screen" id="projects">
       <div class="m-auto">
-        <div class="flex flex-wrap text-gray-800">
+        <div class="flex flex-wrap text-teal-800">
           <template
             x-data="projects()"
             x-for="project in projects"
           >
             <div class="lg:w-2/4 max-w-3xl m-auto">
               <div class=" m-4">
-                <div class="border-red-300 border-2"></div>
-                <div class="flex flex-row items-center hover:bg-gray-200 rounded shadow-2xl bg-gray-100">
-                  <img class="h-56 shadow-xl rounded" :src="project.image">
+                <div class="border-teal-800 border-2"></div>
+                <div class="flex flex-row items-center hover:bg-teal-400 rounded-b-lg shadow-2xl bg-teal-500">
+                  <img class="h-56 shadow-xl rounded-bl-lg" :src="project.image">
 
-                  <div class="text-center mx-5">
+                  <div class="text-center mx-5 text-white">
                     <div class="text-2xl font-bold" x-text="project.title"></div>
-                    <div class="text-gray-600 py-3" x-text="project.body"></div>
+                    <div class="text-white py-3" x-text="project.body"></div>
                       <a
-                        class="hover:text-white hover:bg-gray-400 inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"
+                        class="hover:text-teal-200 hover:bg-teal-700 inline-block bg-teal-800 rounded-full px-3 py-1 text-sm font-semibold text-white"
                         :href="project.demo"
                         target="_blank"
                       >Demo</a>
@@ -235,7 +232,7 @@
     </div>
     <div class="flex h-screen" id="contact">
       <div class="m-auto">
-        <div class="social-icons pt-5 pb-3">
+        <div class="social-icons bg-teal-500 rounded-full p-2 shadow-2xl">
           <a
             href="https://www.github.com/manelgavalda"
             class="social-icon social-icon--github"
