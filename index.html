@@ -181,8 +181,9 @@
     <div class="flex h-screen" id="about">
       <div class="m-auto">
         <div class="flex flex-col flex-col-reverse md:flex-row bg-gray-100 rounded shadow-2xl w-4/6 m-auto">
+          <div class="border-gray-300 border-2"></div>
           <div class="w-4/6 md:w-3/6 m-auto lg:mx-10 text-center sm:py-8">
-            <div class="text-5xl leading-none pb-5 font-bold">
+            <div class="text-5xl leading-none pb-5 font-bold px-3">
               Manel Gavaldà
             </div>
             <div class="text-l">
@@ -210,17 +211,20 @@
             x-for="project in projects"
           >
             <div class="lg:w-2/4 max-w-3xl m-auto">
-              <div class="flex flex-row items-center hover:bg-gray-200 rounded shadow-2xl bg-gray-100 m-4">
-                <img class="h-56 shadow-xl rounded" :src="project.image">
+              <div class=" m-4">
+                <div class="border-red-300 border-2"></div>
+                <div class="flex flex-row items-center hover:bg-gray-200 rounded shadow-2xl bg-gray-100">
+                  <img class="h-56 shadow-xl rounded" :src="project.image">
 
-                <div class="text-center mx-5">
-                  <div class="text-2xl font-bold" x-text="project.title"></div>
-                  <div class="text-gray-600 py-3" x-text="project.body"></div>
-                    <a
-                      class="hover:text-white hover:bg-gray-400 inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"
-                      :href="project.demo"
-                      target="_blank"
-                    >Demo</a>
+                  <div class="text-center mx-5">
+                    <div class="text-2xl font-bold" x-text="project.title"></div>
+                    <div class="text-gray-600 py-3" x-text="project.body"></div>
+                      <a
+                        class="hover:text-white hover:bg-gray-400 inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"
+                        :href="project.demo"
+                        target="_blank"
+                      >Demo</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -295,19 +299,19 @@
       projects : [
         {
           title: 'Commands',
-          body: 'VueJs with Vuex and Vuetify Ipad application used to manage food commands for a company.',
+          body: 'Ipad application for keeping track of food orders, product stock and accountability. Made with Vue, Vuex and Vuetify',
           demo: 'https://comandes-badia-v2.surge.sh',
           image: 'commands.png'
         },
         {
           title: 'Subscribers',
-          body: 'Laravel, VueJs and Vuetify application used to manage email subscribers.',
+          body: 'Application for managing email subscribers with a variable number of fields and an active domain. Made with Laravel, Vue and Vuetify.',
           demo: 'https://github.com/manelgavalda/subscribers',
           image: 'subscribers.png'
         },
         {
           title: 'Forum',
-          body: 'Laravel and VueJs forum application using redis, algolia search and tailwind.',
+          body: 'Example of a Forum where you can see, post and comment on other people posts. Made with Laravel, VueJs, Redis, Algolia Search and Tailwind.',
           demo: 'https://github.com/manelgavalda/forum',
           image: 'forum.png'
         }
