@@ -218,10 +218,25 @@
                     <div class="text-2xl font-bold" x-text="project.title"></div>
                     <div class="text-white py-3" x-text="project.body"></div>
                       <a
-                        class="hover:text-teal-200 hover:bg-teal-700 inline-block bg-teal-800 rounded-full px-3 py-1 text-sm font-semibold text-white"
+                        :class="{
+                          'bg-teal-800' : project.demo,
+                          'hover:bg-teal-700' : project.demo,
+                          'pointer-events-none' : ! project.demo
+                        }"
+                        class="bg-teal-500 inline-block rounded-full px-3 py-1 text-sm font-semibold text-white"
                         :href="project.demo"
                         target="_blank"
                       >Demo</a>
+                      <a
+                        :class="{
+                          'bg-teal-800' : project.source,
+                          'hover:text-teal-200' : project.source,
+                          'pointer-events-none' : ! project.source
+                         }"
+                        class="bg-teal-500 inline-block rounded-full px-3 py-1 text-sm font-semibold text-white"
+                        :href="project.source"
+                        target="_blank"
+                      >Source</a>
                   </div>
                 </div>
               </div>
@@ -304,13 +319,13 @@
         {
           title: 'Subscribers',
           body: 'Application for managing email subscribers with a variable number of fields and an active domain. Made with Laravel, Vue and Vuetify.',
-          demo: 'https://github.com/manelgavalda/subscribers',
+          source: 'https://github.com/manelgavalda/subscribers',
           image: 'subscribers.png'
         },
         {
           title: 'Forum',
           body: 'Example of a Forum where you can see, post and comment on other people posts. Made with Laravel, VueJs, Redis, Algolia Search and Tailwind.',
-          demo: 'https://github.com/manelgavalda/forum',
+          source: 'https://github.com/manelgavalda/forum',
           image: 'forum.png'
         }
       ]
