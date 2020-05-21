@@ -15,11 +15,8 @@
 
   <!-- Styles -->
   <style>
-
     html, body {
-      font-family: 'Nunito', sans-serif;
       scroll-behavior: smooth;
-      background-color: #f0ecf6;
     }
 
     .social-icons {
@@ -132,86 +129,66 @@
 </head>
 <body
   x-data="tab()"
-  class="overflow-hidden"
+  class="bg-teal-100 overflow-hidden"
   @wheel="{ setTimeout(() => { tab = location.hash }, 800) }"
 >
-  <div class="border-teal-800 border-2 fixed w-full"></div>
-  <ul class="flex bg-teal-600 h-16 fixed shadow-xl w-full mt-1 text-lg text-teal-100">
-    <li class="ml-10 m-5">
-      <a
-        href="#about"
-        class="hover:text-teal-300 hover:underline"
-        @click="{ tab = '#about' }"
-        :class="{
-          'font-bold': tab == '#about',
-          'text-xl': tab == '#about'
-        }"
-      >About</a>
-    </li>
-    <li class="m-5">
-      <a
-        href="#projects"
-        class="hover:text-teal-300 hover:underline"
-        @click="{ tab = '#projects' }"
-        :class="{
-          'font-bold': tab == '#projects',
-          'text-xl': tab == '#projects'
-        }"
-      >Projects</a>
-    </li>
-    <li class="m-5">
-      <a
-        href="#contact"
-        class="hover:text-teal-300 hover:underline"
-        @click="{ tab = '#contact' }"
-        :class="{
-          'font-bold': tab == '#contact',
-          'text-xl': tab == '#contact'
-        }"
-      >Contact</a>
-    </li>
-  </ul>
+  <header class="flex bg-white h-20 shadow fixed w-full">
+    <div class="flex container mx-auto">
+      <div class="flex">
+        <a href="#about" class="flex items-center">
+          <img class="h-12 mr-5 rounded-lg" src="manel.png">
+          <h1 class="text-2xl text-teal-800 font-bold hover:text-teal-500">
+            Manel Gavaldà
+          </h1>
+        </a>
+      </div>
+
+      <div class="flex flex-1 justify-end items-center">
+        <nav class=" text-lg text-teal-700 font-bold">
+          <a href="#projects" class="hover:text-teal-500">
+            Projects
+          </a>
+
+          <a href="#contact" class="ml-6 hover:text-teal-500 ">
+            Contact
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  
   <div class="max-w-screen-xl m-auto">
     <div class="flex h-screen" id="about">
-      <div class="m-auto">
-        <div class=" text-white flex flex-col flex-col-reverse md:flex-row bg-teal-500 shadow-2xl w-4/6 m-auto  rounded-lg">
-          <div class="border-teal-800 border-2"></div>
-          <div class="w-4/6 md:w-3/6 m-auto lg:mx-10 text-center sm:py-8">
-            <div class="text-5xl leading-none pb-5 px-3">
-              Manel Gavaldà
-            </div>
-            <div class="text-l">
-              Backend Developer mainly working with Laravel and VueJs.
-              I like to contribute in the
-              <a
-                href="https://laracasts.com/@manelgavalda"
-                class="font-bold hover:underline"
-                target="_blank"
-              >Laracasts Forum</a>. I also maintain some open source Laravel projects.
-            </div>
-          </div>
-          <div class="items-center md:w-3/6">
-            <img class="rounded-r-lg shadow-md border-l border-teal-600" src="manel.png">
-          </div>
-        </div>
+      <div class="m-auto px-20 text-teal-900 text-xl">
+        <p class="pb-2">
+          I'm <b>Manel Gavaldà</b>, a Full-Stack Developer who works mainly with Laravel and VueJs.
+        </p>
+        <p>
+          I contribute to the open source Laravel community, and I also like to contribute to the
+          <a
+            href="https://laracasts.com/@manelgavalda"
+            class="font-bold hover:underline text-blue-700"
+            target="_blank"
+          >Laracasts Forum</a>.
+        </p>
       </div>
     </div>
     <div class="flex h-screen" id="projects">
       <div class="m-auto">
-        <div class="flex flex-wrap text-teal-800">
+        <div class="flex flex-wrap">
           <template
             x-data="projects()"
             x-for="project in projects"
           >
-            <div class="lg:w-2/4 max-w-3xl m-auto">
-              <div class=" m-4">
-                <div class="border-teal-800 border-2"></div>
-                <div class="flex flex-row items-center hover:bg-teal-400 rounded-b-lg shadow-2xl bg-teal-500">
-                  <img class="h-56 shadow-xl rounded-bl-lg border-r border-teal-600" :src="project.image">
+            <div class="lg:w-2/4 max-w-3xl m-auto text-teal-800">
+              <div class="m-4">
+                <div class="border-teal-400 border-2"></div>
+                <div class="flex flex-row items-center hover:bg-teal-300 rounded-b-lg shadow-lg bg-teal-200">
+                  <img class="h-56 rounded-bl-lg border-r border-teal-400" :src="project.image">
 
-                  <div class="text-center mx-5 text-white">
-                    <div class="text-3xl font-extrabold" x-text="project.title"></div>
-                    <div class="text-white py-3 font-bold" x-text="project.body"></div>
+                  <div class="text-center mx-5">
+                    <div class="text-3xl font-bold text-teal-700" x-text="project.title"></div>
+                    <div class="py-3 font-bold" x-text="project.body"></div>
                       <a
                         :class="{
                           'bg-teal-800' : project.demo,
@@ -238,14 +215,17 @@
             </div>
           </template>
         </div>
+        <div class="font-bold pt-5 text-center text-teal-900">
+          <b>I currently maintain​ <a href="https://github.com/acacha/adminlte-laravel" class="text-blue-500">acacha/adminlte-laravel​</a> and ​<a class="text-blue-500" href="https://github.com/nunomaduro/laravel-console-dusk">nunomaduro/laravel-console-dusk​</a></b>
+        </div>
       </div>
     </div>
     <div class="flex h-screen" id="contact">
       <div class="m-auto">
-        <div class="social-icons bg-teal-500 rounded-full py-2 shadow-2xl">
+        <div class="social-icons rounded-full py-2">
           <a
             href="https://www.github.com/manelgavalda"
-            class="social-icon social-icon--github border border-teal-800"
+            class="social-icon social-icon--github"
             target="_blank"
           >
             <i class="fab fa-github"></i>
@@ -253,7 +233,7 @@
           </a>
           <a
             href="https://linkedin.com/in/manel-gavald%C3%A0-andreu-410b72117"
-            class="social-icon social-icon--linkedin border border-teal-800"
+            class="social-icon social-icon--linkedin"
             target="_blank"
           >
             <i class="fab fa-linkedin-in"></i>
@@ -261,7 +241,7 @@
           </a>
           <a
             href="mailto:manelgavalda1@gmail.com"
-            class="social-icon social-icon--email border border-teal-800"
+            class="social-icon social-icon--email"
             target="_blank"
           >
             <i class="fab fa-google"></i>
