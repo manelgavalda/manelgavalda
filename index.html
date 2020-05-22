@@ -188,7 +188,8 @@
 
                   <div class="text-center m-auto">
                     <div class="text-3xl font-bold text-teal-800" x-text="project.title"></div>
-                    <div class="py-3 font-bold mx-5" x-text="project.body"></div>
+                    <div class="py-3 mx-5" x-text="project.body"></div>
+                    <div class="pb-3 font-bold text-sm italic mx-5" x-text="project.stack"></div>
                       <a
                         class="bg-teal-900 hover:bg-teal-600 inline-block rounded-full px-2 p-1 text-white"
                         :href="project.link"
@@ -274,28 +275,32 @@
         {
           title: 'Orders',
           icon: 'fa fa-link',
-          body: 'Ipad application to track food orders, product stock and accounting. Vue, Vuex and Vuetify',
+          body: 'Ipad application to track food orders, product stock and accounting.',
+          stack: 'Vue, Vuex and Vuetify',
           link: 'https://comandes-badia-v2.surge.sh',
           image: 'orders.png'
         },
         {
           title: 'Forum',
           icon: 'fab fa-github',
-          body: 'Reddit-like forum. Laravel, Vue, Redis, Algolia Search and Tailwind',
+          body: 'Reddit-like forum.',
+          stack: 'Laravel, Vue, Redis, Algolia Search and Tailwind',
           link: 'https://github.com/manelgavalda/forum',
           image: 'forum.png'
         },
         {
           title: 'Subscribers',
           icon: 'fab fa-github',
-          body: 'Application to manage email subscribers with a variable number of fields and an active domain. Laravel, Vue and Vuetify',
+          body: 'Application to manage email subscribers with a variable number of fields and an active domain.',
+          stack: 'Laravel, Vue and Vuetify',
           link: 'https://github.com/manelgavalda/subscribers',
           image: 'subscribers.png'
         },
         {
           title: 'Enrollment',
           icon: 'fab fa-github',
-          body: 'Mobile application to enroll users in a school. Vue and Vuetify',
+          body: 'Mobile application to enroll users in a school.',
+          stack: 'Vue and Vuetify',
           link: 'https://github.com/manelgavalda/enrollment-mobile-vue',
           image: 'enrollment-mobile.png'
         }
