@@ -161,7 +161,7 @@
     <div class="flex h-screen" id="about">
       <div class="m-auto px-20 text-teal-900 text-xl">
         <p class="pb-5">
-          I'm <b>Manel Gavaldà</b>, a Full-Stack Developer who works mainly with Laravel and VueJs.
+          I'm <b>Manel Gavaldà</b>, a Full-Stack Developer who works mainly with Laravel and Vue.
         </p>
         <p>
           I contribute to the open source Laravel community, and I also like to contribute to the
@@ -180,36 +180,22 @@
             x-data="projects()"
             x-for="project in projects"
           >
-            <div class="lg:w-2/4 max-w-3xl m-auto text-teal-800">
+            <div class="lg:w-2/4 max-w-3xl m-auto w-full text-teal-800">
               <div class="m-4">
                 <div class="border-teal-400 border-2"></div>
                 <div class="flex flex-row items-center hover:bg-teal-300 rounded-b-lg shadow-lg bg-teal-200">
-                  <img class="h-56 rounded-bl-lg border-r border-teal-400" :src="project.image">
+                  <img class="h-40 lg:h-56 rounded-bl-lg border-r border-teal-400" :src="project.image">
 
-                  <div class="text-center mx-5">
-                    <div class="text-3xl font-bold text-teal-700" x-text="project.title"></div>
-                    <div class="py-3 font-bold" x-text="project.body"></div>
+                  <div class="text-center m-auto">
+                    <div class="text-3xl font-bold text-teal-800" x-text="project.title"></div>
+                    <div class="py-3 font-bold mx-5" x-text="project.body"></div>
                       <a
-                        :class="{
-                          'bg-teal-800' : project.demo,
-                          'hover:bg-teal-700' : project.demo,
-                          'pointer-events-none' : ! project.demo
-                        }"
-                        class="bg-teal-600 inline-block rounded-full px-3 py-1 text-sm font-semibold text-white hover:underline"
-                        :href="project.demo"
+                        class="bg-teal-900 hover:bg-teal-600 inline-block rounded-full px-2 p-1 text-white"
+                        :href="project.link"
                         target="_blank"
-                      >Demo</a>
-                      <a
-                        :class="{
-                          'bg-teal-800' : project.source,
-                          'hover:text-teal-200' : project.source,
-                          'pointer-events-none' : ! project.source
-                         }"
-                        class="bg-teal-600 inline-block rounded-full px-3 py-1 text-sm font-semibold text-white hover:underline"
-                        :href="project.source"
-                        target="_blank"
-                      >Source</a>
-                  </div>
+                      >
+                        <i :class="project.icon"></i>
+                      </a>
                 </div>
               </div>
             </div>
@@ -287,21 +273,31 @@
       projects : [
         {
           title: 'Orders',
+          icon: 'fa fa-link',
           body: 'Ipad application to track food orders, product stock and accounting. Vue, Vuex and Vuetify',
-          demo: 'https://comandes-badia-v2.surge.sh',
+          link: 'https://comandes-badia-v2.surge.sh',
           image: 'orders.png'
         },
         {
+          title: 'Forum',
+          icon: 'fab fa-github',
+          body: 'Reddit-like forum. Laravel, Vue, Redis, Algolia Search and Tailwind',
+          link: 'https://github.com/manelgavalda/forum',
+          image: 'forum.png'
+        },
+        {
           title: 'Subscribers',
+          icon: 'fab fa-github',
           body: 'Application to manage email subscribers with a variable number of fields and an active domain. Laravel, Vue and Vuetify',
-          source: 'https://github.com/manelgavalda/subscribers',
+          link: 'https://github.com/manelgavalda/subscribers',
           image: 'subscribers.png'
         },
         {
-          title: 'Forum',
-          body: 'Reddit-like forum. Laravel, VueJs, Redis, Algolia Search and Tailwind',
-          source: 'https://github.com/manelgavalda/forum',
-          image: 'forum.png'
+          title: 'Enrollment',
+          icon: 'fab fa-github',
+          body: 'Mobile application to enroll users in a school. Vue and Vuetify',
+          link: 'https://github.com/manelgavalda/enrollment-mobile-vue',
+          image: 'enrollment-mobile.png'
         }
       ]
     }
