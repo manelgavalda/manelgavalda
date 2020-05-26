@@ -181,15 +181,15 @@
             x-for="project in projects"
           >
             <div class="lg:w-2/4 max-w-3xl m-auto w-full text-teal-800">
-              <div class="m-4">
+              <div class="lg:m-4 sm:m-2">
                 <div class="border-teal-400 border-2"></div>
                 <div class="flex flex-row items-center hover:bg-teal-300 rounded-b-lg shadow-lg bg-teal-200">
                   <img class="h-40 lg:h-56 rounded-bl-lg border-r border-teal-400" :src="project.image">
 
                   <div class="text-center m-auto">
                     <div class="text-3xl font-bold text-teal-800" x-text="project.title"></div>
-                    <div class="py-3 mx-5" x-text="project.body"></div>
-                    <div class="pb-3 font-bold text-sm italic mx-5" x-text="project.stack"></div>
+                    <div class="lg:py-3 mx-5 text-sm" x-text="project.body"></div>
+                    <div class="lg:pb-3 font-bold text-xs italic mx-5" x-text="project.stack"></div>
                       <a
                         class="bg-teal-900 hover:bg-teal-600 inline-block rounded-full px-2 p-1 text-white"
                         :href="project.link"
