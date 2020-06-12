@@ -193,16 +193,14 @@
             <div class="lg:w-2/4 max-w-3xl m-auto w-full">
               <div class="lg:m-3 m-2 border rounded border-teal-200">
                 <div class="flex flex-row items-center rounded-b-lg">
-                  <img class="h-32 lg:h-56 rounded-bl-lg border-r border-teal-400" :src="project.image">
+                  <img class="h-32 lg:h-48 rounded-bl-lg border-r border-teal-400" :src="project.image">
 
                   <div class="text-center m-auto">
-                    <a class="text-blue-500 text-xl lg:text-2xl font-bold hover:underline" x-text="project.title" :href="project.link" target="_blank"></a>
-                    <div class="text-gray-700 py-2 mx-5 text-sm lg:h-20" x-text="project.description"></div>
-                    <div class="font-bold text-xs italic mx-5">
-                      <template x-for="technology in project.stack">
-                        <span class="inline-block bg-gray-200 rounded-full px-2 py-1 text-sm font-semibold text-gray-700" x-text="technology"></span>
-                      </template>
-                    </div>
+                    <a class="text-blue-500 text-xl font-bold hover:underline" x-text="project.title" :href="project.link" target="_blank"></a>
+                    <div class="text-gray-700 pt-2 mx-5 text-sm lg:h-20" x-text="project.description"></div>
+                    <template x-for="tag in project.tags">
+                      <span class="italic inline-block bg-blue-100 rounded-full px-2 py-1 text-xs text-gray-700" x-text="tag"></span>
+                    </template>
                   </div>
                 </div>
               </div>
@@ -283,7 +281,7 @@
           title: 'Forum',
           icon: 'fab fa-github',
           description: 'Reddit-like forum.',
-          stack: ['Laravel', 'Vue', 'Redis', 'Algolia Search', 'Tailwind'],
+          tags: ['Laravel', 'Vue', 'Redis', 'Algolia Search', 'Tailwind'],
           link: 'https://github.com/manelgavalda/forum',
           image: 'forum.png'
         },
@@ -291,7 +289,7 @@
           title: 'Orders',
           icon: 'fa fa-link',
           description: 'Ipad application to track food orders, product stock and accounting.',
-          stack: ['Vue', 'Vuex', 'Vuetify'],
+          tags: ['Vue', 'Vuex', 'Vuetify'],
           link: 'https://comandes-badia-v2.surge.sh',
           image: 'orders.png'
         },
@@ -299,7 +297,7 @@
           title: 'Subscribers',
           icon: 'fab fa-github',
           description: 'Application to manage email subscribers with a variable number of fields and an active domain.',
-          stack: ['Laravel', 'Vue', 'Vuetify'],
+          tags: ['Laravel', 'Vue', 'Vuetify'],
           link: 'https://github.com/manelgavalda/subscribers',
           image: 'subscribers.png'
         },
@@ -307,7 +305,7 @@
           title: 'Enrollment',
           icon: 'fab fa-github',
           description: 'Mobile application to enroll users in a school.',
-          stack: ['Vue', 'Vuetify'],
+          tags: ['Vue', 'Vuetify'],
           link: 'https://github.com/manelgavalda/enrollment-mobile-vue',
           image: 'enrollment-mobile.png'
         }
