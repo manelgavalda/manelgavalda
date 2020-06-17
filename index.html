@@ -137,29 +137,23 @@
   </style>
 
 </head>
-<body
-  x-data="tab()"
-  class="overflow-hidden font-sans"
-  @wheel="{ setTimeout(() => { tab = location.hash }, 800) }"
->
+<body class="font-sans">
   <header class="flex bg-white h-20 shadow fixed w-full">
     <div class="flex container mx-auto">
       <div class="flex">
-        <a href="#about" class="flex items-center">
-          <img class="h-12 mr-5 rounded-lg" src="manel.png">
+        <a href="#" class="flex items-center" onclick="return show('about');">
+          <img class="h-12 mr-5 rounded-lg" src="images/manel.png">
           <h1 class="text-2xl text-teal-800 font-bold hover:text-teal-500">
             Manel Gavaldà
           </h1>
         </a>
       </div>
-
       <div class="flex flex-1 justify-end items-center">
         <nav class=" text-lg text-teal-700 font-bold">
-          <a href="#projects" class="hover:text-teal-500">
+          <a href="#" class="hover:text-teal-500" onclick="return show('projects');">
             Projects
           </a>
-
-          <a href="#contact" class="ml-6 hover:text-teal-500 ">
+          <a href="#" class="ml-6 hover:text-teal-500" onclick="return show('contact');">
             Contact
           </a>
         </nav>
@@ -167,84 +161,81 @@
     </div>
   </header>
   
-  <div class="max-w-screen-xl m-auto">
-    <div class="flex h-screen" id="about">
-      <div class="m-auto px-20 text-teal-900 text-xl">
-        <p class="pb-5">
-          I'm <b>Manel Gavaldà</b>, a Full-Stack Developer who works mainly with Laravel and Vue.
-        </p>
-        <p>
-          I contribute to the open source Laravel community, and I also like to contribute to the
-          <a
-            href="https://laracasts.com/@manelgavalda"
-            class="font-bold hover:underline text-blue-500"
-            target="_blank"
-          >Laracasts Forum</a>.
-        </p>
-      </div>
+  <div class="flex h-screen">
+    <div class="m-auto text-teal-900 text-xl" id="about">
+      <p class="mb-1">
+        I'm <b>Manel Gavaldà</b>, a Full-Stack Developer who works mainly with Laravel and Vue.
+      </p>
+      <p>
+        I contribute to the open source Laravel community, and I also like to contribute to the
+        <a
+          href="https://laracasts.com/@manelgavalda"
+          class="font-bold hover:underline text-blue-500"
+          target="_blank"
+        >Laracasts Forum</a>.
+      </p>
     </div>
-    <div class="flex h-screen" id="projects">
-      <div class="m-auto">
-        <div class="flex flex-wrap">
-          <template
-            x-data="projects()"
-            x-for="project in projects"
-          >
-            <div class="lg:w-2/4 max-w-3xl m-auto w-full">
-              <div class="lg:m-3 m-2 border rounded border-teal-200">
-                <div class="flex flex-row items-center rounded-b-lg">
-                  <img class="h-32 lg:h-48 rounded-bl-lg border-r border-teal-400" :src="project.image">
+    <div class="m-auto py-20 xl:w-8/12" id="projects">
+      <div class="ml-12 font-bold lg:m-3 m-2 text-2xl">
+        Personal projects
+      </div>
+      <div class="flex flex-wrap">
+        <template
+          x-data="projects()"
+          x-for="project in projects"
+        >
+          <div class="lg:w-2/4 max-w-3xl m-auto w-full">
+            <div class="lg:m-3 m-2 border rounded border-teal-200">
+              <div class="flex flex-row items-center rounded-b-lg">
+                <img class="h-32 lg:h-48 rounded-bl-lg border-r border-teal-400" :src="project.image">
 
-                  <div class="mx-8">
-                    <a class="text-blue-500 text-xl font-bold hover:underline" x-text="project.title" :href="project.link" target="_blank"></a>
-                    <div class="text-gray-700 text-sm lg:h-20 pt-1" x-text="project.description"></div>
-                    <template x-for="tag in project.tags">
-                      <span class="font-semibold italic inline-block bg-blue-100 rounded-full text-xs text-gray-700" x-text="tag"></span>
-                    </template>
-                  </div>
+                <div class="mx-8">
+                  <a class="text-blue-500 text-xl font-bold hover:underline" x-text="project.title" :href="project.link" target="_blank"></a>
+                  <div class="text-gray-700 text-sm lg:h-20 pt-1" x-text="project.description"></div>
+                  <template x-for="tag in project.tags">
+                    <span class="font-semibold italic inline-block bg-blue-100 rounded-full text-xs text-gray-700" x-text="tag"></span>
+                  </template>
                 </div>
               </div>
             </div>
-          </template>
-          <div class="pt-3 text-teal-900 ml-12 text-sm">
-            <b>I also maintain​:</b><br>
-            <ul class="pl-4 mb-1">
-              <li><a href="https://github.com/acacha/adminlte-laravel" class="text-blue-500 hover:underline font-bold" target="_blank">acacha/adminlte-laravel​</a>: Switches default Laravel scaffolding/boilerplate to AdminLTE template.</li>
-              <li>​<a href="https://github.com/nunomaduro/laravel-console-dusk" class="text-blue-500 hover:underline font-bold" target="_blank">nunomaduro/laravel-console-dusk​</a>: Allows the usage of Laravel Dusk in Laravel/Laravel Zero artisan commands.</li>
-            </ul>
           </div>
+        </template>
+        <div class="pt-3 text-teal-900 ml-12 text-sm">
+          <b>I also maintain​:</b><br>
+          <ul class="pl-4 mb-1">
+            <li><a href="https://github.com/acacha/adminlte-laravel" class="text-blue-500 hover:underline font-bold" target="_blank">acacha/adminlte-laravel​</a>: Switches default Laravel scaffolding/boilerplate to AdminLTE template.</li>
+            <li>​<a href="https://github.com/nunomaduro/laravel-console-dusk" class="text-blue-500 hover:underline font-bold" target="_blank">nunomaduro/laravel-console-dusk​</a>: Allows the usage of Laravel Dusk in Laravel/Laravel Zero artisan commands.</li>
+          </ul>
         </div>
-        
       </div>
+      
     </div>
-    <div class="flex h-screen" id="contact">
-      <div class="m-auto">
-        <div class="social-icons rounded-full py-2">
-          <a
-            href="https://www.github.com/manelgavalda"
-            class="social-icon social-icon--github"
-            target="_blank"
-          >
-            <i class="fab fa-github"></i>
-            <div class="tooltip">Github</div>
-          </a>
-          <a
-            href="https://linkedin.com/in/manel-gavald%C3%A0-andreu-410b72117"
-            class="social-icon social-icon--linkedin"
-            target="_blank"
-          >
-            <i class="fab fa-linkedin-in"></i>
-            <div class="tooltip">LinkedIn</div>
-          </a>
-          <a
-            href="mailto:manelgavalda1@gmail.com"
-            class="social-icon social-icon--email"
-            target="_blank"
-          >
-            <i class="fab fa-google"></i>
-            <div class="tooltip">Mail</div>
-          </a>
-        </div>
+    <div class="m-auto" id="contact">
+      <div class="social-icons rounded-full py-2">
+        <a
+          href="https://www.github.com/manelgavalda"
+          class="social-icon social-icon--github"
+          target="_blank"
+        >
+          <i class="fab fa-github"></i>
+          <div class="tooltip">Github</div>
+        </a>
+        <a
+          href="https://linkedin.com/in/manel-gavald%C3%A0-andreu-410b72117"
+          class="social-icon social-icon--linkedin"
+          target="_blank"
+        >
+          <i class="fab fa-linkedin-in"></i>
+          <div class="tooltip">LinkedIn</div>
+        </a>
+        <a
+          href="mailto:manelgavalda1@gmail.com"
+          class="social-icon social-icon--email"
+          target="_blank"
+        >
+          <i class="fab fa-google"></i>
+          <div class="tooltip">Mail</div>
+        </a>
       </div>
     </div>
   </div>
@@ -254,73 +245,64 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
 
 <script>
-  location.hash = location.hash || '#about'
+  show('about')
+  
+  function show(shown) {
+    document.getElementById('about').style.display='none';
+    document.getElementById('projects').style.display='none';
+    document.getElementById('contact').style.display='none';
 
-  function debounce(callback, delay){
-    var timer;
+    document.getElementById(shown).style.display='block';
 
-    return function(){
-      var args = arguments;
-      var context = this;
-      clearTimeout(timer);
-      timer = setTimeout(function(){
-        callback.apply(context, args);
-      }, delay)
-    }
+    location.hash = shown
   }
-
-  window.addEventListener('wheel', debounce(function(event){
-    if(location.hash == '#about') {
-      location.hash = event.deltaY < 0 ? '#contact' : '#projects'
-    } else if(location.hash == '#projects') {
-      location.hash = event.deltaY < 0 ? '#about' : '#contact'
-    } else if(location.hash == '#contact') {
-      location.hash = event.deltaY < 0 ? '#projects' : '#about'
-    }
-  }, 200))
 
   function projects() {
     return {
       projects : [
         {
           title: 'Forum',
-          icon: 'fab fa-github',
           description: 'Reddit-like forum.',
           tags: ['Laravel', 'Vue', 'Redis', 'Algolia Search', 'Tailwind'],
           link: 'https://github.com/manelgavalda/forum',
-          image: 'forum.png'
+          image: 'images/forum.png'
         },
         {
           title: 'Orders',
-          icon: 'fa fa-link',
           description: 'Ipad application to track food orders, product stock and accounting.',
           tags: ['Vue', 'Vuex', 'Vuetify'],
           link: 'https://comandes-badia-v2.surge.sh',
-          image: 'orders.png'
+          image: 'images/orders.png'
         },
         {
           title: 'Subscribers',
-          icon: 'fab fa-github',
           description: 'Application to manage email subscribers with a variable number of fields and an active domain.',
           tags: ['Laravel', 'Vue', 'Vuetify'],
           link: 'https://github.com/manelgavalda/subscribers',
-          image: 'subscribers.png'
+          image: 'images/subscribers.png'
         },
         {
           title: 'Enrollment',
-          icon: 'fab fa-github',
           description: 'Mobile application to enroll users in a school.',
           tags: ['Vue', 'Vuetify'],
           link: 'https://github.com/manelgavalda/enrollment-mobile-vue',
-          image: 'enrollment-mobile.png'
+          image: 'images/enrollment-mobile.png'
+        },
+        {
+          title: 'Youtube React',
+          description: 'Youtube clone using React and Redux.',
+          tags: ['React', 'Redux'],
+          link: 'https://github.com/manelgavalda/youtube-react',
+          image: 'images/youtube-react.png'
+        },
+        {
+          title: 'Redux Posts',
+          description: 'Small app to create and delete posts with Redux.',
+          tags: ['React', 'Redux'],
+          link: 'https://github.com/manelgavalda/redux-posts',
+          image: 'images/redux-posts.png'
         }
       ]
-    }
-  }
-
-  function tab() {
-    return {
-      tab: location.hash
     }
   }
 </script>
