@@ -107,7 +107,7 @@
 </html>
 
 <script>
-  show('about')
+  show(location.hash.replace('#', '') || 'about')
   
   function show(shown) {
     document.getElementById('about').style.display='none';
