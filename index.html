@@ -20,46 +20,6 @@
     gtag('config', 'UA-168566586-1');
   </script>
   
-  <style>
-    #content div {
-        animation: fadein 0.5s;
-        -moz-animation: fadein 0.5s; /* Firefox */
-        -webkit-animation: fadein 0.5s; /* Safari and Chrome */
-        -o-animation: fadein 0.5s; /* Opera */
-    }
-    @keyframes fadein {
-        from {
-            opacity:0;
-        }
-        to {
-            opacity:1;
-        }
-    }
-    @-moz-keyframes fadein { /* Firefox */
-        from {
-            opacity:0;
-        }
-        to {
-            opacity:1;
-        }
-    }
-    @-webkit-keyframes fadein { /* Safari and Chrome */
-        from {
-            opacity:0;
-        }
-        to {
-            opacity:1;
-        }
-    }
-    @-o-keyframes fadein { /* Opera */
-        from {
-            opacity:0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-  </style>
 </head>
 <body class="font-sans text-teal-900" x-data="{ current: location.hash.replace('#', '') || 'about' }">
   <header class="flex bg-white h-20 shadow fixed w-full">
@@ -85,8 +45,13 @@
     </div>
   </header>
   
-  <div class="flex h-screen" id="content">
-    <div class="m-auto text-teal-900 text-xl" x-show="current == 'about'">
+  <div class="flex h-screen">
+    <div class="m-auto text-teal-900 text-xl" 
+      x-show="current == 'about'"
+      x-transition:enter="transition duration-500 transform"
+      x-transition:enter-start="scale-95 opacity-50"
+      
+    >
       <div class="mx-12">
         <p class="mb-4">
           I'm <b>Manel Gavaldà</b>, a Full-Stack Developer who works mainly with Laravel and Vue.
@@ -101,7 +66,11 @@
         </p>
       </div>
     </div>
-    <div class="m-auto py-20 xl:w-8/12" x-show="current == 'projects'">
+    <div class="m-auto py-20 xl:w-8/12" 
+      x-show="current == 'projects'"
+      x-transition:enter="transition duration-500 transform"
+      x-transition:enter-start="scale-95 opacity-50"
+    >
       <div class="flex flex-wrap">
         <div class="text-center w-full">
           <p class="text-2xl font-bold my-5">Personal Projects</p>
@@ -135,7 +104,11 @@
         </div>
       </div>
     </div>
-    <div class="m-auto" x-show="current == 'contact'">
+    <div class="m-auto" 
+      x-show="current == 'contact'"
+      x-transition:enter="transition duration-500 transform"
+      x-transition:enter-start="scale-95 opacity-0"
+      >
       <p class="text-2xl font-bold my-5">Contact</p>
       <ul class="text-lg font-bold">
         <li><a href="https://www.github.com/manelgavalda" class="text-blue-600 hover:underline" target="_blank"><i class="fa fa-github"></i> GitHub</a></li>
