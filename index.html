@@ -61,32 +61,32 @@
     }
   </style>
 </head>
-<body class="font-sans text-teal-900">
+<body class="font-sans text-teal-900" x-data="{ current: location.hash.replace('#', '') || 'about' }">
   <header class="flex bg-white h-20 shadow fixed w-full">
     <div class="flex container mx-auto">
       <div class="flex">
-        <a href="#about" class="flex items-center" onclick="show('about');">
+        <button class="flex items-center" @click="current = location.hash = 'about'">
           <img class="h-12 mr-5 rounded-lg" src="images/manel.png">
           <h1 class="text-2xl text-teal-800 font-bold hover:text-teal-500">
             Manel Gavaldà
           </h1>
-        </a>
+        </button>
       </div>
       <div class="flex flex-1 justify-end items-center">
-        <nav class=" text-lg text-teal-700 font-bold">
-          <a href="#projects" class="hover:text-teal-500" onclick="show('projects');">
+        <nav class=" text-lg text-teal-700">
+          <button class="hover:text-teal-500 font-bold" @click="current = location.hash = 'projects'">
             Projects
-          </a>
-          <a href="#contact" class="ml-6 hover:text-teal-500" onclick="show('contact');">
+          </button>
+          <button class="ml-6 hover:text-teal-500 font-bold" @click="current = location.hash = 'contact'">
             Contact
-          </a>
+          </button>
         </nav>
       </div>
     </div>
   </header>
   
   <div class="flex h-screen" id="content">
-    <div class="m-auto text-teal-900 text-xl" id="about">
+    <div class="m-auto text-teal-900 text-xl" x-show="current == 'about'">
       <div class="mx-12">
         <p class="mb-4">
           I'm <b>Manel Gavaldà</b>, a Full-Stack Developer who works mainly with Laravel and Vue.
@@ -101,7 +101,7 @@
         </p>
       </div>
     </div>
-    <div class="m-auto py-20 xl:w-8/12" id="projects">
+    <div class="m-auto py-20 xl:w-8/12" x-show="current == 'projects'">
       <div class="flex flex-wrap">
         <div class="text-center w-full">
           <p class="text-2xl font-bold my-5">Projects</p>
@@ -135,7 +135,7 @@
         </div>
       </div>
     </div>
-    <div class="m-auto" id="contact">
+    <div class="m-auto" x-show="current == 'contact'">
       <p class="text-2xl font-bold my-5">Contact</p>
       <ul class="text-lg font-bold">
         <li><a href="https://www.github.com/manelgavalda" class="text-blue-600 hover:underline" target="_blank"><i class="fa fa-github"></i> GitHub</a></li>
@@ -149,18 +149,6 @@
 </html>
 
 <script>
-  show(location.hash.replace('#', '') || 'about')
-  
-  function show(shown) {
-    document.getElementById('about').style.display='none';
-    document.getElementById('projects').style.display='none';
-    document.getElementById('contact').style.display='none';
-
-    document.getElementById(shown).style.display='block';
-
-    location.hash = shown
-  }
-
   function projects() {
     return {
       projects : [
