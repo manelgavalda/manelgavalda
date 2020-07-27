@@ -26,9 +26,9 @@
     <div class="flex container mx-auto">
       <div class="flex">
         <button class="flex items-center" @click="current = location.hash = 'about'">
-          <h1 class="text-2xl text-teal-800 font-bold hover:text-teal-500">
+          <h1 class="text-2xl text-teal-800 hover:text-teal-500">
             <i class="fa fa-caret-right" aria-hidden="true"></i>
-            Manel Gavaldà
+            <b>Manel</b>Gavaldà
           </h1>
         </button>
       </div>
@@ -85,7 +85,7 @@
           x-for="project in projects"
         >
           <div class="lg:w-2/4 max-w-3xl m-auto w-full">
-            <div class="lg:m-3 m-2 border rounded border-teal-600">
+            <div class="m-2 border border-teal-600">
               <div class="flex flex-row items-center rounded-b-lg">
                 <img class="h-32 lg:h-48 rounded-bl-lg border-r border-teal-400" :src="project.image">
 
@@ -102,9 +102,12 @@
         </template>
         <div class="mx-12 pt-3">
           <b>I currently maintain​:</b><br>
-          <ul class="pl-4 mb-1">
-            <li><a href="https://github.com/acacha/adminlte-laravel" class="text-blue-600 hover:underline font-bold" target="_blank">acacha/adminlte-laravel​</a>: Switches default Laravel scaffolding/boilerplate to AdminLTE template.</li>
-            <li>​<a href="https://github.com/nunomaduro/laravel-console-dusk" class="text-blue-600 hover:underline font-bold" target="_blank">nunomaduro/laravel-console-dusk​</a>: Allows the usage of Laravel Dusk in Laravel/Laravel Zero artisan commands.</li>
+          <ul class="pl-4">
+            <li class="my-2">
+              <a href="https://github.com/acacha/adminlte-laravel" class="text-blue-600 hover:underline font-bold" target="_blank">acacha/adminlte-laravel​</a> <br>
+              Switches default Laravel scaffolding/boilerplate to AdminLTE template.</li>
+            <li>​<a href="https://github.com/nunomaduro/laravel-console-dusk" class="text-blue-600 hover:underline font-bold" target="_blank">nunomaduro/laravel-console-dusk​</a><br>
+              Allows the usage of Laravel Dusk in Laravel/Laravel Zero artisan commands.</li>
           </ul>
         </div>
       </div>
@@ -152,7 +155,7 @@
           image: 'images/subscribers.png'
         },
         {
-          title: 'Enrollment',
+          title: 'Enrollment Mobile Vue',
           description: 'Mobile application to enroll users in a school.',
           tags: ['Vue', 'Vuetify'],
           link: 'https://github.com/manelgavalda/enrollment-mobile-vue',
