@@ -54,21 +54,18 @@
   </header>
   
   <div class="flex h-screen sm:w-8/12 m-auto py-20">
-    <div class="m-auto text-teal-900 text-xl" 
+    <div class="m-auto text-teal-900" 
       x-show="current == 'about'"
       x-transition:enter="transition duration-300 transform"
       x-transition:enter-start="opacity-0" 
     >
       <img src="images/manel.png" alt="avatar" class="m-auto w-32 h-32 rounded-full mb-3">
-      <div class="text-center text-lg sm:text-xl">
-        <div class="text-4xl font-bold pb-3 border-b">
+      <div class="text-center sm:text-xl">
+        <div class="text-2xl font-bold pb-3 border-b">
           Manel Gavaldà 
-          <div class="text-gray-600 text-sm"> > Full-Stack Developer </div>
+          <div class="text-gray-600 text-sm">> Full-Stack Developer</div>
         </div>
-        <div>
-          
-        </div>
-        <div class="text-lg text-gray-800">
+        <div class="text-base text-gray-800">
           I contribute to the Laravel open source community, and I also like to contribute to the
           <a
             href="https://laracasts.com/@manelgavalda"
@@ -84,40 +81,56 @@
       x-transition:enter="transition duration-300 transform"
       x-transition:enter-start="opacity-0"
     >
+
+    
       <div class="flex flex-wrap">
         <div class="text-center w-full">
-          <p class="text-2xl font-bold my-5 text-gray-700">Projects</p>
+          <p class="text-2xl font-bold mt-3 mb-5 text-gray-700">Projects</p>
+        </div>
+        <div class="w-full">
+          <p class="text-sm text-center font-bold text-gray-700">I currently maintain</p>
         </div>
         <template
-          x-data="projects()"
-          x-for="project in projects"
+          x-data="maintainedProjects()"
+          x-for="project in maintainedProjects"
         >
           <div class="lg:w-2/4 max-w-3xl m-auto w-full">
-            <div class="m-2 border border-teal-600">
+            <div class="m-2 border border-gray-400 rounded-lg">
               <div class="flex flex-row items-center rounded-b-lg">
-                <img class="h-32 lg:h-48 rounded-bl-lg border-r border-teal-400" :src="project.image">
-
-                <div class="mx-8">
-                  <a class="text-blue-600 text-xl font-bold hover:underline" x-text="project.title" :href="project.link" target="_blank"></a>
-                  <div class="text-gray-700 text-sm lg:h-20" x-text="project.description"></div>
+                <div class="m-4">
+                  <svg class="inline fill-current" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+                  <a class="text-blue-600 hover:underline" x-html="project.title" :href="project.link" target="_blank"></a>
+                  <div class="text-gray-700 text-xs h-10 mt-2" x-text="project.description"></div>
                   <template x-for="tag in project.tags">
-                    <span class="font-semibold inline-block bg-blue-100 rounded-full text-xs text-gray-700" x-text="tag"></span>
+                    <span class="font-semibold inline-block bg-blue-100 rounded-full text-xs text-gray-700 px-2" x-text="tag"></span>
                   </template>
                 </div>
               </div>
             </div>
           </div>
         </template>
-        <div class="mx-12 pt-3">
-          <b>I currently maintain​:</b><br>
-          <ul class="pl-4">
-            <li class="my-2">
-              <a href="https://github.com/acacha/adminlte-laravel" class="text-blue-600 hover:underline font-bold" target="_blank">acacha/adminlte-laravel​</a> <br>
-              Switches default Laravel scaffolding/boilerplate to AdminLTE template.</li>
-            <li>​<a href="https://github.com/nunomaduro/laravel-console-dusk" class="text-blue-600 hover:underline font-bold" target="_blank">nunomaduro/laravel-console-dusk​</a><br>
-              Allows the usage of Laravel Dusk in Laravel/Laravel Zero artisan commands.</li>
-          </ul>
+        <div class="w-full">
+          <p class="text-sm text-center font-bold text-gray-700 mt-5">Personal projects</p>
         </div>
+        <template
+          x-data="projects()"
+          x-for="project in projects"
+        >
+          <div class="lg:w-2/4 max-w-3xl m-auto w-full">
+            <div class="m-2 border border-gray-400 rounded-lg">
+              <div class="flex flex-row items-center rounded-b-lg">
+                <div class="m-4">
+                  <svg class="inline fill-current" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+                  <a class="text-blue-600 font-bold hover:underline" x-text="project.title" :href="project.link" target="_blank"></a>
+                  <div class="text-gray-700 text-xs h-10 mt-2" x-text="project.description"></div>
+                  <template x-for="tag in project.tags">
+                    <span class="font-semibold inline-block bg-blue-100 rounded-full text-xs text-gray-700 px-2" x-text="tag"></span>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
       </div>
     </div>
     <div class="m-auto" 
@@ -125,8 +138,10 @@
       x-transition:enter="transition duration-300 transform"
       x-transition:enter-start="opacity-0"
       >
+      <!-- <p class="text-2xl font-hairline mt-3 mb-5 text-gray-700">Projects</p> -->
+
       <p class="text-2xl font-bold my-3 text-gray-700">Contact</p>
-      <ul class="text-lg font-bold">
+      <ul class="text-normal font-bold">
         <li class="mb-1">
           <a href="https://www.github.com/manelgavalda" class="text-blue-600 hover:underline" target="_blank">
             <svg role="img" aria-label="GitHub" class="w-4 h-5 inline align-text-bottom" fill="currentColor" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
@@ -175,46 +190,65 @@
     return {
       projects : [
         {
-          title: 'Forum',
+          title: 'forum',
           description: 'Reddit-like forum.',
           tags: ['Laravel', 'Vue', 'Redis', 'Algolia Search', 'Tailwind'],
           link: 'https://github.com/manelgavalda/forum',
           image: 'images/forum.png'
         },
         {
-          title: 'Orders',
+          title: 'orders',
           description: 'Ipad application to track food orders, product stock and accounting.',
           tags: ['Vue', 'Vuex', 'Vuetify'],
           link: 'https://comandes-badia-v2.surge.sh',
           image: 'images/orders.png'
         },
         {
-          title: 'Subscribers',
+          title: 'subscribers',
           description: 'Application to manage email subscribers with a variable number of fields and an active domain.',
           tags: ['Laravel', 'Vue', 'Vuetify'],
           link: 'https://github.com/manelgavalda/subscribers',
           image: 'images/subscribers.png'
         },
         {
-          title: 'Enrollment Mobile Vue',
+          title: 'enrollment-mobile-vue',
           description: 'Mobile application to enroll users in a school.',
           tags: ['Vue', 'Vuetify'],
           link: 'https://github.com/manelgavalda/enrollment-mobile-vue',
           image: 'images/enrollment-mobile.png'
         },
         {
-          title: 'Youtube React',
+          title: 'youtube-react',
           description: 'Youtube clone using React and Redux.',
           tags: ['React', 'Redux'],
           link: 'https://github.com/manelgavalda/youtube-react',
           image: 'images/youtube-react.png'
         },
         {
-          title: 'Redux Posts',
+          title: 'redux-posts',
           description: 'Small application to create and delete publications with Redux.',
           tags: ['React', 'Redux'],
           link: 'https://github.com/manelgavalda/redux-posts',
           image: 'images/redux-posts.png'
+        }
+      ]
+    }
+  }
+
+  function maintainedProjects() {
+    return {
+      maintainedProjects : [
+        {
+          title: 'acacha/<b>adminlte-laravel</b>',
+          description: 'Switches default Laravel scaffolding/boilerplate to AdminLTE template.',
+          tags: ['Laravel', 'Vue', 'Adminlte'],
+          link: 'https://github.com/acacha/adminlte-laravel',
+        },
+        {
+          title: 'nunomaduro/<b>laravel-console-dusk​</b>',
+          description: 'Allows the usage of Laravel Dusk in Laravel/Laravel Zero artisan commands.',
+          tags: ['Laravel', 'Dusk'],
+          link: 'https://github.com/nunomaduro/laravel-console-dusk',
         }
       ]
     }
