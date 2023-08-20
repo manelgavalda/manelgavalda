@@ -115,28 +115,6 @@
             </div>
           </div>
         </template>
-        <div class="w-full">
-          <p class="text-sm text-center font-bold text-gray-600 mt-5">Personal projects</p>
-        </div>
-        <template
-          x-data="projects()"
-          x-for="project in projects"
-        >
-          <div class="lg:w-2/4 max-w-3xl m-auto w-full">
-            <div class="m-2 border border-gray-400 rounded-lg">
-              <div class="flex flex-row items-center rounded-b-lg">
-                <div class="m-4">
-                  <svg class="inline fill-current" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
-                  <a class="text-blue-600 font-bold hover:underline" x-text="project.title" :href="project.link" target="_blank"></a>
-                  <div class="text-gray-700 text-xs h-10 mt-2" x-text="project.description"></div>
-                  <template x-for="tag in project.tags">
-                    <span class="font-semibold inline-block bg-blue-100 rounded-full text-xs text-gray-700 px-2" x-text="tag"></span>
-                  </template>
-                </div>
-              </div>
-            </div>
-          </div>
-        </template>
       </div>
     </div>
     <div class="m-auto" 
@@ -190,55 +168,6 @@
 </html>
 
 <script>
-  function projects() {
-    return {
-      projects : [
-        {
-          title: 'forum',
-          description: 'Reddit-like forum.',
-          tags: ['Laravel', 'Vue', 'Redis', 'Algolia Search', 'Tailwind'],
-          link: 'https://github.com/manelgavalda/forum',
-          image: 'images/forum.png'
-        },
-        {
-          title: 'orders',
-          description: 'Ipad application to track food orders, product stock and accounting.',
-          tags: ['Vue', 'Vuex', 'Vuetify'],
-          link: 'https://comandes-badia-v2.surge.sh',
-          image: 'images/orders.png'
-        },
-        {
-          title: 'subscribers',
-          description: 'Application to manage email subscribers with a variable number of fields and an active domain.',
-          tags: ['Laravel', 'Vue', 'Vuetify'],
-          link: 'https://github.com/manelgavalda/subscribers',
-          image: 'images/subscribers.png'
-        },
-        {
-          title: 'enrollment-mobile-vue',
-          description: 'Mobile application to enroll users in a school.',
-          tags: ['Vue', 'Vuetify'],
-          link: 'https://github.com/manelgavalda/enrollment-mobile-vue',
-          image: 'images/enrollment-mobile.png'
-        },
-        {
-          title: 'youtube-react',
-          description: 'Youtube clone using React and Redux.',
-          tags: ['React', 'Redux'],
-          link: 'https://github.com/manelgavalda/youtube-react',
-          image: 'images/youtube-react.png'
-        },
-        {
-          title: 'redux-posts',
-          description: 'Small application to create and delete publications with Redux.',
-          tags: ['React', 'Redux'],
-          link: 'https://github.com/manelgavalda/redux-posts',
-          image: 'images/redux-posts.png'
-        }
-      ]
-    }
-  }
-
   function maintainedProjects() {
     return {
       maintainedProjects : [
