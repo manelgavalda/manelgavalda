@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +14,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168566586-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() {dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'UA-168566586-1');
@@ -30,6 +31,7 @@
     }
   </style>
 </head>
+
 <body class="font-sans text-teal-900" x-data="{ current: location.hash.replace('#', '') || 'about' }">
   <header class="flex bg-white h-20 shadow fixed w-full">
     <div class="flex container mx-auto">
@@ -52,60 +54,52 @@
       </div>
     </div>
   </header>
-  
+
   <div class="flex h-screen sm:w-8/12 m-auto py-20">
-    <div class="m-auto text-teal-900" 
-      x-show="current == 'about'"
-      x-transition:enter="transition duration-300 transform"
-      x-transition:enter-start="opacity-0" 
-    >
+    <div class="m-auto text-teal-900" x-show="current == 'about'" x-transition:enter="transition duration-300 transform"
+      x-transition:enter-start="opacity-0">
       <img src="images/manel.png" alt="avatar" class="m-auto w-32 h-32 rounded-full mb-3">
       <div class="text-center sm:text-xl">
         <div class="text-2xl font-bold pb-3 border-b">
-          Manel Gavalda 
+          Manel Gavalda
           <div class="text-gray-600 text-sm">> PHP Laravel Developer</div>
         </div>
         <div class="text-base text-gray-800">
-          I participate actively in the  
-          <a
-            href="https://github.com/manelgavalda"
-            class="font-bold hover:underline text-blue-600"
-            target="_blank"
-          >Laravel open source</a>
+          I participate actively in the
+          <a href="https://github.com/manelgavalda" class="font-bold hover:underline text-blue-600"
+            target="_blank">Laravel open source</a>
           community and am an engaged member of the
-          <a
-            href="https://laracasts.com/@manelgavalda"
-            class="font-bold hover:underline text-blue-600"
-            target="_blank"
-          >Laracasts Forum</a>.
+          <a href="https://laracasts.com/@manelgavalda" class="font-bold hover:underline text-blue-600"
+            target="_blank">Laracasts Forum</a>.
         </div>
       </div>
     </div>
 
-    <div class="m-auto" 
-      x-show="current == 'projects'"
-      x-transition:enter="transition duration-300 transform"
-      x-transition:enter-start="opacity-0"
-    >
+    <div class="m-auto" x-show="current == 'projects'" x-transition:enter="transition duration-300 transform"
+      x-transition:enter-start="opacity-0">
 
-    
+
       <div class="flex flex-wrap">
         <div class="w-full">
           <p class="text-sm text-center font-bold text-gray-600">I currently maintain</p>
         </div>
-        <template
-          x-data="maintainedProjects()"
-          x-for="project in maintainedProjects"
-        >
+        <template x-data="maintainedProjects()" x-for="project in maintainedProjects">
           <div class="lg:w-2/4 max-w-3xl m-auto w-full">
             <div class="m-2 border border-gray-400 rounded-lg">
               <div class="flex flex-row items-center rounded-b-lg">
                 <div class="m-4">
-                  <svg class="inline fill-current" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
-                  <a class="text-blue-600 hover:underline" x-html="project.title" :href="project.link" target="_blank"></a>
+                  <svg class="inline fill-current" viewBox="0 0 16 16" version="1.1" width="16" height="16"
+                    aria-hidden="true">
+                    <path fill-rule="evenodd"
+                      d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z">
+                    </path>
+                  </svg>
+                  <a class="text-blue-600 hover:underline" x-html="project.title" :href="project.link"
+                    target="_blank"></a>
                   <div class="text-gray-700 text-xs h-10 mt-2" x-text="project.description"></div>
                   <template x-for="tag in project.tags">
-                    <span class="font-semibold inline-block bg-blue-100 rounded-full text-xs text-gray-700 px-2" x-text="tag"></span>
+                    <span class="font-semibold inline-block bg-blue-100 rounded-full text-xs text-gray-700 px-2"
+                      x-text="tag"></span>
                   </template>
                 </div>
               </div>
@@ -114,31 +108,52 @@
         </template>
       </div>
     </div>
-    <div class="m-auto" 
-      x-show="current == 'contact'"
-      x-transition:enter="transition duration-300 transform"
-      x-transition:enter-start="opacity-0"
-      >
+    <div class="m-auto" x-show="current == 'contact'" x-transition:enter="transition duration-300 transform"
+      x-transition:enter-start="opacity-0">
       <ul class="text-normal font-bold">
         <li class="mb-1">
           <a href="https://www.github.com/manelgavalda" class="text-blue-600 hover:underline" target="_blank">
-            <svg role="img" aria-label="GitHub" class="w-4 h-5 inline align-text-bottom" fill="currentColor" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-            <span>GitHub</span>  
+            <svg role="img" aria-label="GitHub" class="w-4 h-5 inline align-text-bottom" fill="currentColor"
+              viewBox="0 0 496 512">
+              <path
+                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+              </path>
+            </svg>
+            <span>GitHub</span>
           </a>
         </li>
         <li class="mb-1">
           <a href="https://laracasts.com/@manelgavalda" class="text-blue-600 hover:underline" target="_blank">
             <svg class="w-4 h-5 inline align-text-bottom" viewBox="0 0 36 36">
               <g id="Brand-Doodling" stroke="none" stroke-width="1">
-                <g id="symbol---original" transform="translate(18.405592, 17.405592) rotate(-45.000000) translate(-18.405592, -17.405592) translate(-6.094408, -1.094408)">
+                <g id="symbol---original"
+                  transform="translate(18.405592, 17.405592) rotate(-45.000000) translate(-18.405592, -17.405592) translate(-6.094408, -1.094408)">
                   <g id="Group-96-Copy-4" transform="translate(15.000000, 0.000000)" fill="currentColor">
-                    <path d="M0.652771855,4.48401956 L7.61588486,4.48401956 C9.0501766,4.48401956 10.2128998,5.64674274 10.2128998,7.08103448 L10.2128998,7.08103448 C10.2128998,8.51532622 9.0501766,9.67804941 7.61588486,9.67804941 L0.652771855,9.67804941 C-0.781519883,9.67804941 -1.94424307,8.51532622 -1.94424307,7.08103448 L-1.94424307,7.08103448 C-1.94424307,5.64674274 -0.781519883,4.48401956 0.652771855,4.48401956 Z" id="Rectangle-Copy-73" transform="translate(4.134328, 7.081034) rotate(-270.000000) translate(-4.134328, -7.081034) "/>
-                    <path d="M-3.32366493,23.3455138 L11.5923216,23.3455138 C13.0266134,23.3455138 14.1893366,24.508237 14.1893366,25.9425287 L14.1893366,25.9425287 C14.1893366,27.3768205 13.0266134,28.5395437 11.5923216,28.5395437 L-3.32366493,28.5395437 C-4.75795666,28.5395437 -5.92067985,27.3768205 -5.92067985,25.9425287 L-5.92067985,25.9425287 C-5.92067985,24.508237 -4.75795666,23.3455138 -3.32366493,23.3455138 Z" id="Rectangle-Copy-74" transform="translate(4.134328, 25.942529) rotate(-270.000000) translate(-4.134328, -25.942529) "/>
-                    <path d="M2.10283241,8.32513323 L31.3798551,8.54792872 C32.8395401,8.5590368 34.0200893,9.73966424 34.0311007,11.19935 L34.0311007,11.19935 C34.0418988,12.6307735 32.8902544,13.7999251 31.4588309,13.8107232 C31.4457393,13.810822 31.4326472,13.8108215 31.4195556,13.8107219 L2.14253293,13.5879264 C0.682847917,13.5768183 -0.497701276,12.3961909 -0.508712595,10.9365051 L-0.508712595,10.9365051 C-0.519510713,9.50508166 0.632133688,8.33593005 2.06355717,8.32513193 C2.07664873,8.32503317 2.08974085,8.3250336 2.10283241,8.32513323 Z" id="Rectangle-Copy-77" transform="translate(16.761194, 11.067928) rotate(-330.000000) translate(-16.761194, -11.067928) "/>
-                    <path d="M2.14253293,23.4329862 L31.4195556,23.2101907 C32.8509784,23.1992977 34.0202064,24.3508646 34.0310994,25.7822874 C34.031199,25.7953789 34.0311994,25.808471 34.0311007,25.8215626 L34.0311007,25.8215626 C34.0200893,27.2812484 32.8395401,28.4618758 31.3798551,28.4729839 L2.10283241,28.6957794 C0.671409647,28.7066724 -0.497818295,27.5551055 -0.508711293,26.1236827 C-0.508810919,26.1105911 -0.508811352,26.097499 -0.508712595,26.0844075 L-0.508712595,26.0844075 C-0.497701276,24.6247217 0.682847917,23.4440943 2.14253293,23.4329862 Z" id="Rectangle-Copy-78" transform="translate(16.761194, 25.952985) rotate(-30.000000) translate(-16.761194, -25.952985) "/>
+                    <path
+                      d="M0.652771855,4.48401956 L7.61588486,4.48401956 C9.0501766,4.48401956 10.2128998,5.64674274 10.2128998,7.08103448 L10.2128998,7.08103448 C10.2128998,8.51532622 9.0501766,9.67804941 7.61588486,9.67804941 L0.652771855,9.67804941 C-0.781519883,9.67804941 -1.94424307,8.51532622 -1.94424307,7.08103448 L-1.94424307,7.08103448 C-1.94424307,5.64674274 -0.781519883,4.48401956 0.652771855,4.48401956 Z"
+                      id="Rectangle-Copy-73"
+                      transform="translate(4.134328, 7.081034) rotate(-270.000000) translate(-4.134328, -7.081034) " />
+                    <path
+                      d="M-3.32366493,23.3455138 L11.5923216,23.3455138 C13.0266134,23.3455138 14.1893366,24.508237 14.1893366,25.9425287 L14.1893366,25.9425287 C14.1893366,27.3768205 13.0266134,28.5395437 11.5923216,28.5395437 L-3.32366493,28.5395437 C-4.75795666,28.5395437 -5.92067985,27.3768205 -5.92067985,25.9425287 L-5.92067985,25.9425287 C-5.92067985,24.508237 -4.75795666,23.3455138 -3.32366493,23.3455138 Z"
+                      id="Rectangle-Copy-74"
+                      transform="translate(4.134328, 25.942529) rotate(-270.000000) translate(-4.134328, -25.942529) " />
+                    <path
+                      d="M2.10283241,8.32513323 L31.3798551,8.54792872 C32.8395401,8.5590368 34.0200893,9.73966424 34.0311007,11.19935 L34.0311007,11.19935 C34.0418988,12.6307735 32.8902544,13.7999251 31.4588309,13.8107232 C31.4457393,13.810822 31.4326472,13.8108215 31.4195556,13.8107219 L2.14253293,13.5879264 C0.682847917,13.5768183 -0.497701276,12.3961909 -0.508712595,10.9365051 L-0.508712595,10.9365051 C-0.519510713,9.50508166 0.632133688,8.33593005 2.06355717,8.32513193 C2.07664873,8.32503317 2.08974085,8.3250336 2.10283241,8.32513323 Z"
+                      id="Rectangle-Copy-77"
+                      transform="translate(16.761194, 11.067928) rotate(-330.000000) translate(-16.761194, -11.067928) " />
+                    <path
+                      d="M2.14253293,23.4329862 L31.4195556,23.2101907 C32.8509784,23.1992977 34.0202064,24.3508646 34.0310994,25.7822874 C34.031199,25.7953789 34.0311994,25.808471 34.0311007,25.8215626 L34.0311007,25.8215626 C34.0200893,27.2812484 32.8395401,28.4618758 31.3798551,28.4729839 L2.10283241,28.6957794 C0.671409647,28.7066724 -0.497818295,27.5551055 -0.508711293,26.1236827 C-0.508810919,26.1105911 -0.508811352,26.097499 -0.508712595,26.0844075 L-0.508712595,26.0844075 C-0.497701276,24.6247217 0.682847917,23.4440943 2.14253293,23.4329862 Z"
+                      id="Rectangle-Copy-78"
+                      transform="translate(16.761194, 25.952985) rotate(-30.000000) translate(-16.761194, -25.952985) " />
                   </g>
-                  <path d="M11.8965885,15.8875205 L26.3720682,15.8875205 C27.8316779,15.8875205 29.0149254,17.070768 29.0149254,18.5303777 L29.0149254,18.5303777 C29.0149254,19.9899874 27.8316779,21.1732348 26.3720682,21.1732348 L11.8965885,21.1732348 C10.4369788,21.1732348 9.25373134,19.9899874 9.25373134,18.5303777 L9.25373134,18.5303777 C9.25373134,17.070768 10.4369788,15.8875205 11.8965885,15.8875205 Z" id="Rectangle-Copy-75" fill="#53B5FF" transform="translate(19.134328, 18.530378) rotate(-180.000000) translate(-19.134328, -18.530378) "/>
-                  <path d="M2.64285714,15.8875205 L4.81982942,15.8875205 C6.27943912,15.8875205 7.46268657,17.070768 7.46268657,18.5303777 L7.46268657,18.5303777 C7.46268657,19.9899874 6.27943912,21.1732348 4.81982942,21.1732348 L2.64285714,21.1732348 C1.18324745,21.1732348 1.03651537e-13,19.9899874 1.03472786e-13,18.5303777 L1.03472786e-13,18.5303777 C1.03294035e-13,17.070768 1.18324745,15.8875205 2.64285714,15.8875205 Z" id="Rectangle-Copy-76" fill="#53B5FF" transform="translate(3.731343, 18.530378) rotate(-180.000000) translate(-3.731343, -18.530378) "/>
+                  <path
+                    d="M11.8965885,15.8875205 L26.3720682,15.8875205 C27.8316779,15.8875205 29.0149254,17.070768 29.0149254,18.5303777 L29.0149254,18.5303777 C29.0149254,19.9899874 27.8316779,21.1732348 26.3720682,21.1732348 L11.8965885,21.1732348 C10.4369788,21.1732348 9.25373134,19.9899874 9.25373134,18.5303777 L9.25373134,18.5303777 C9.25373134,17.070768 10.4369788,15.8875205 11.8965885,15.8875205 Z"
+                    id="Rectangle-Copy-75" fill="#53B5FF"
+                    transform="translate(19.134328, 18.530378) rotate(-180.000000) translate(-19.134328, -18.530378) " />
+                  <path
+                    d="M2.64285714,15.8875205 L4.81982942,15.8875205 C6.27943912,15.8875205 7.46268657,17.070768 7.46268657,18.5303777 L7.46268657,18.5303777 C7.46268657,19.9899874 6.27943912,21.1732348 4.81982942,21.1732348 L2.64285714,21.1732348 C1.18324745,21.1732348 1.03651537e-13,19.9899874 1.03472786e-13,18.5303777 L1.03472786e-13,18.5303777 C1.03294035e-13,17.070768 1.18324745,15.8875205 2.64285714,15.8875205 Z"
+                    id="Rectangle-Copy-76" fill="#53B5FF"
+                    transform="translate(3.731343, 18.530378) rotate(-180.000000) translate(-3.731343, -18.530378) " />
                 </g>
               </g>
             </svg>
@@ -146,14 +161,24 @@
           </a>
         </li>
         <li class="mb-1">
-          ​<a href="https://www.linkedin.com/in/manel-gavalda-andreu-410b72117/" class="text-blue-600 hover:underline" target="_blank">
-            <svg role="img" aria-label="Linkedin" class="w-4 h-5 inline align-text-bottom" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            <span>Linkedin</span> 
+          ​<a href="https://www.linkedin.com/in/manel-gavalda-andreu-410b72117/" class="text-blue-600 hover:underline"
+            target="_blank">
+            <svg role="img" aria-label="Linkedin" class="w-4 h-5 inline align-text-bottom" fill="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg>
+            <span>Linkedin</span>
           </a>
         </li>
         <li>
           ​<a href="mailto:manelgavalda1@gmail.com" class="text-blue-600 hover:underline" target="_blank">
-            <svg role="img" aria-label="Email" class="w-4 h-5 inline align-text-bottom" fill="currentColor" viewBox="0 0 512 512"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg> 
+            <svg role="img" aria-label="Email" class="w-4 h-5 inline align-text-bottom" fill="currentColor"
+              viewBox="0 0 512 512">
+              <path
+                d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z">
+              </path>
+            </svg>
             <span>Email</span>
           </a>
         </li>
@@ -161,12 +186,13 @@
     </div>
   </div>
 </body>
+
 </html>
 
 <script>
   function maintainedProjects() {
     return {
-      maintainedProjects : [
+      maintainedProjects: [
         {
           title: 'acacha/<b>adminlte-laravel</b>',
           description: 'Switches default Laravel scaffolding/boilerplate to AdminLTE template.',
